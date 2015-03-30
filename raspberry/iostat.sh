@@ -15,13 +15,6 @@ offbold=`tput rmso`
 hostname=`uname -n`
 PS3="ENTRE COM A OPCAO DESEJADA: "
 
-## Variaveis "iostat" Screen_Mode ##
-
-TTY=`tty |sed "s:\/dev\/::g"`
-ID_DISP=`who |grep pts/12|nawk '{print $6}'|sed "s:(::g"|sed "s:)::g"`
-DISPLAY=localhost$ID_DISP
-
-export DISPLAY
 
 ##Limpa Tela 
 
@@ -42,8 +35,10 @@ do
 			read -p "Insira a bagaca: " opcao
 			read -p "Insira o tempo de intervalo: " intervalo
 			read -p "Insira a quantidade de intervalos: " quant
+			clear
 			/usr/bin/iostat $opcao $intervalo $quant
 			sleep 5
+			./iostat.sh
 			break # pkill iostat.ksh
 			clear 
 			;;

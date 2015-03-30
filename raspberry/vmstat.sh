@@ -36,7 +36,7 @@ do
 	case $applic in
 		Screen_Mode)
 			echo -e "\n Comando sugerido vmstat -a 1\n " 
-			read -p "Insira a bagaca: " opcao
+			read -p "Insira a opcao: " opcao
 			read -p "Insira o tempo de intervalo: " intervalo
 			read -p "Insira a quantidade de intervalos: " quant
 			clear

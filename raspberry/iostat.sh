@@ -4,8 +4,13 @@
 ## Script para monitoramento de sistema com o cmd "iostat" ##
 #
 #name: iostat.ksh
+#based
 #date: 05/01/05
 # Walter Gargarela Junior / Ismar Rainer de Castro
+# 
+#Changed 
+#date 30/03/2015
+#Walter Gargarela Junior @waltergargarela
 
 
 ## Variaveis do iostat.ksh ##

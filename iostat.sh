@@ -16,16 +16,8 @@
 bold=`tput smso;tput bold`
 offbold=`tput rmso`
 hostname=`uname -n`
-detail=`/usr/bin/uname -X|sed '6,8d'`
 PS3="ENTRE COM A OPCAO DESEJADA: "
 
-## Variaveis "iostat" Screen_Mode ##
-
-TTY=`tty |sed "s:\/dev\/::g"`
-ID_DISP=`who |grep pts/12|nawk '{print $6}'|sed "s:(::g"|sed "s:)::g"`
-DISPLAY=localhost$ID_DISP
-
-export DISPLAY
 
 ##Limpa Tela 
 
@@ -33,7 +25,7 @@ clear
 
 ## Tela Principal ##
 
-print "${bold} *** IOSTAT.KSH *** ${offbold} \n"
+print "${bold} *** IOSTAT.SH *** ${offbold} \n"
 print "hostname => ${bold} $hostname ${offbold} \n"
 #print "system details =>\n $detail "
 print "####################################"
@@ -45,7 +37,7 @@ do
 			read opcao?"insira a opcao do iostat: "
 			read intervalo?"insira o tempo de intervalo: "
 			read quant?"insira a quantidade de intervalos: "
-			/usr/dt/bin/dtterm -name IOSTAT.KSH--Screen_Mode -e /usr/bin/iostat $opcao $intervalo $quant  &
+			gnome-terminal -e /usr/bin/iostat $opcao $intervalo $quant  &
 			./iostat.sh
 			break # pkill iostat.sh
 			clear 
@@ -65,7 +57,7 @@ do
                         ;;
 
 		Man_Iostat)
-			 /usr/dt/bin/dtterm -name IOSTAT.KSH--Man_Iostat-e /usr/bin/man iostat &
+			 gnome-terminal -e /usr/bin/man iostat &
 			./iostat.sh
 			break # pkill iostat.sh
 			clear

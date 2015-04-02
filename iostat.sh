@@ -1,20 +1,17 @@
-#!/bin/ksh
+#!/bin/bash
 
 
 ## Script para monitoramento de sistema com o cmd "iostat" ##
 #
-#name: iostat.ksh
+#name: iostat.sh
+#Based
 #date: 05/01/05
 # Walter Gargarela Junior / Ismar Rainer de Castro
+#Changed
+#date 30/03/2015
+#Walter Gargarela Junior @waltergargarela
 
-
-## Variaveis de ambientes ##
-PATH=/usr/bin:/usr/sbin:/usr/local/bin:/opt/sfw/bin
-MANPATH=$MANPATH:/usr/dt/man:/usr/local/man:/opt/sfw/man
-
-export PATH MANPATH
-
-## Variaveis do iostat.ksh ##
+## Variaveis do iostat.sh ##
 
 bold=`tput smso;tput bold`
 offbold=`tput rmso`
@@ -49,8 +46,8 @@ do
 			read intervalo?"insira o tempo de intervalo: "
 			read quant?"insira a quantidade de intervalos: "
 			/usr/dt/bin/dtterm -name IOSTAT.KSH--Screen_Mode -e /usr/bin/iostat $opcao $intervalo $quant  &
-			./iostat.ksh
-			break # pkill iostat.ksh
+			./iostat.sh
+			break # pkill iostat.sh
 			clear 
 			;;
 
@@ -62,15 +59,15 @@ do
                         /usr/bin/iostat $opcao $intervalo $quant  >../output/iostat/$loc_file &
 			echo "salvando arquivo >>$loc_file<< em: ../output/iostat/"
                         sleep 5
-                        ./iostat.ksh
-                        break # pkill iostat.ksh
+                        ./iostat.sh
+                        break # pkill iostat.sh
                         clear
                         ;;
 
 		Man_Iostat)
 			 /usr/dt/bin/dtterm -name IOSTAT.KSH--Man_Iostat-e /usr/bin/man iostat &
-			./iostat.ksh
-			break # pkill iostat.ksh
+			./iostat.sh
+			break # pkill iostat.sh
 			clear
 			;;
 
